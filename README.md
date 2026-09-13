@@ -57,9 +57,7 @@ Every mutation is validated against configurable business rules (capacity limits
 
 ### Data Persistence
 
-- All state is saved to `students.txt`, `courses.txt`, and `teachers.txt` after each successful operation and on exit.
-- Saves are **atomic** (written to a `.tmp` file, then renamed) so interrupted writes do not corrupt existing data.
-- Corrupt or truncated files are detected on load; bad data is discarded safely and the program starts fresh rather than crashing.
+- State survives between sessions through atomic, corruption-safe writes to local text files — full behavior is covered in the [Data Persistence](#data-persistence) section below.
 
 ### Validation & Feedback
 
@@ -236,12 +234,8 @@ SchoolManagementSystem/
 ## Technologies & Concepts
 
 - **C++11** (or later) — uses `constexpr`, `enum class`, `std::to_string`, `stoi`/`stod`, defaulted virtual destructors, and templates.
-- Object-Oriented Programming: encapsulation, abstraction, inheritance, runtime polymorphism, composition, aggregation.
-- Generic programming with class templates (`BaseRepository<T>`).
 - Standard Template Library: `vector`, `map`, `string`, iterators, `fstream`.
-- File I/O for persistence with atomic write-and-rename semantics.
 - Exception handling (`try`/`catch` around string→number conversions; `std::invalid_argument` guards).
-- Dependency injection through constructor-injected references.
 - ANSI escape codes for colored console output.
 
 ## Requirements
