@@ -57,7 +57,7 @@ Every mutation is validated against configurable business rules (capacity limits
 
 ### Data Persistence
 
-- State survives between sessions through atomic, corruption-safe writes to local text files — full behavior is covered in the [Data Persistence](#data-persistence) section below.
+State survives between sessions through atomic, corruption-safe writes to local text files.
 
 ### Validation & Feedback
 
